@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <table width="449" height="530" border="1" align="center">
+        <tr>
+          <td colspan="2" align="center">用户名注册</td>
+        </tr>
+        <tr>
+          <td width="116" align="right">姓名：</td>
+          <td width="323">
+            <label>
+              <input type="text" name="" id="name" />
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td width="116" align="right">性别：</td>
+          <td width="323">
+            <label>
+              <input type="radio" name="sex" id="" />男
+              <input type="radio" name="sex" id="" />女
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">年龄：</td>
+          <td>
+            <label>
+              <input type="text" name="" id="age" />
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">密码：</td>
+          <td>
+            <label>
+              <input type="password" name="" id="pwd" />
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">确认密码：</td>
+          <td>
+            <label>
+              <input type="password" name="" id="qpwd" />
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">手机：</td>
+          <td>
+            <label>
+              <input type="text" name="" id="tel" />
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">QQ:</td>
+          <td>
+            <label>
+              <input type="text" name="" id="qq" />
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">邮箱：</td>
+          <td>
+            <label>
+              <input type="text" name="" id="email" />
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">邮编：</td>
+          <td>
+            <label>
+              <input type="text" name="" id="eml" />
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">身份证：</td>
+          <td>
+            <label>
+              <input type="text" name="" id="sname" />
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">验证码：</td>
+          <td>
+            <label>
+              <input type="text" />
+              <span
+                id="yz"
+                style="
+                  background: url(images/12.png) -10px -15px;
+                  width: 80px;
+                  font-style: italic;
+                  height: 20px;
+                  border: 1px solid black;
+                  display: inline-block;
+                "
+              ></span>
+              <a href="javascript:;" id="btn">看不清</a>
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">爱好：</td>
+          <td>
+            <label>
+              <input type="checkbox" name="a" id="c1" />
+              足球
+              <input type="checkbox" name="a" id="c2" />
+              篮球
+              <input type="checkbox" name="a" id="c3" />
+              排球
+              <input type="checkbox" name="a" id="c4" />
+              网球
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td height="36" colspan="2" align="center">
+            <label>
+              <input type="submit" value="注册" />
+            </label>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <script>
+      var yz = document.querySelector("#yz");
+      var btn = document.querySelector("#btn");
+      /* var num=5;     //字符转ASCII码值
+      var str='A'
+      console.log(num.toString().charCodeAt()) */
+
+      /* var num=65    //ASCII转字符
+      console.log(String.fromCharCode(num)) */
+
+      var strUpArr = []; //创建大写字母数组
+      for (var i = 65; i <= 90; i++) {
+        strUpArr[strUpArr.length] = String.fromCharCode(i);
+      }
+      console.log(strUpArr);
+
+      var strSmArr = []; // 创建小写字母数组
+      for (var i = 97; i <= 122; i++) {
+        strSmArr[strSmArr.length] = String.fromCharCode(i);
+      }
+      console.log(strSmArr);
+
+      var numArr = []; //创建数字数组
+      for (var i = 0; i <= 9; i++) {
+        numArr[numArr.length] = i;
+      }
+      console.log(numArr);
+
+      var arr = strUpArr.concat(strSmArr, numArr);
+      console.log(arr);
+
+      function getRandom(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      btn.addEventListener("click", function () {
+        var textArr = [];
+        for (var i = 0; i < 6; i++) {
+          textArr[i] = getRandom(0, arr.length - 1);
+        }
+        console.log(textArr);
+        var str = "";
+        for (var i = 0; i < textArr.length; i++) {
+          str += arr[textArr[i]];
+        }
+        yz.innerHTML = str;
+      });
+    </script>
+  </body>
+</html>

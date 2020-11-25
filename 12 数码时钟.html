@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+     <meta http-equiv="Refresh" content="1"/>  <!-- 每隔一秒网页自动刷新  -->
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="div">
+      <img />
+      <img />
+      时
+      <img />
+      <img />
+      分
+      <img />
+      <img />
+      秒
+    </div>
+    <script>
+      var imgArr = [
+        "0.png",
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png",
+        "6.png",
+        "7.png",
+        "8.png",
+        "9.png",
+      ];
+      var imgs = document.querySelectorAll("img");
+      function getTime() {
+        var nowTime = +new Date(); //获取当前时间的时间戳（总毫秒数）
+        var times = nowTime / 1000; //  时间的总秒数
+        var hour = parseInt((times / 60 / 60) % 24) + 8; //现在的小时
+        // hour=hour<10? '0'+hour : hour;
+        var minute = parseInt((times / 60) % 60); //现在的分钟
+        // minute=minute<10? '0'+minute : minute;
+        var second = parseInt(times % 60); //现在的秒数
+        // second=second<10? '0'+second : second;
+        // return  '时间：'+hour+'小时'+minute+'分钟'+second+'秒'
+
+        if (hour < 10) {
+          imgs[0].src = "images/" + imgArr[0];
+          imgs[1].src = "images/" + imgArr[hour];
+        } else {
+          imgs[0].src = "images/" + imgArr[parseInt(hour / 10)];
+          imgs[1].src = "images/" + imgArr[hour % 10];
+        }
+        if (minute < 10) {
+          imgs[2].src = "images/" + imgArr[0];
+          imgs[3].src = "images/" + imgArr[minute];
+        } else {
+          imgs[2].src = "images/" + imgArr[parseInt(minute / 10)];
+          imgs[3].src = "images/" + imgArr[minute % 10];
+        }
+        if (second < 10) {
+          imgs[4].src = "images/" + imgArr[0];
+          imgs[5].src = "images/" + imgArr[second];
+        } else {
+          imgs[4].src = "images/" + imgArr[parseInt(second / 10)];
+          imgs[5].src = "images/" + imgArr[second % 10];
+        }
+
+        hour = hour < 10 ? "0" + hour : hour;
+        minute = minute < 10 ? "0" + minute : minute;
+        second = second < 10 ? "0" + second : second;
+        return (
+          "现在的时间是：" + hour + "小时" + minute + "分钟" + second + "秒"
+        );
+      }
+      console.log(getTime());
+    </script>
+  </body>
+</html>
