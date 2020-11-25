@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">盒子1</div>
+    <div class="box">盒子2</div>
+    <ul id="nav">
+        <li>首页</li>
+        <li>导航</li>
+    </ul>
+    <script>
+        //1.  getElementsByClassName('class名')  根据class名返回某些元素的集合
+        var boxs=document.getElementsByClassName('box')
+        console.log(boxs)
+        console.log(boxs[0])
+
+        //2. querySelector()  返回指定选择器的第一个元素对象   里面id或class选择器需要加符号 #nav   .box
+        console.log(document.querySelector('.box'))
+        console.log(document.querySelector('#nav'))
+        console.log(document.querySelector('li'))   //<li>首页</li> 只返回该类元素中的第一个
+
+        //3. querySelectorAll()  返回指定选择器所有元素对象的一个集合  伪数组
+        console.log(document.querySelectorAll('.box'))    //伪数组
+        console.log(document.querySelectorAll('#nav'))  //伪数组
+        console.log(document.querySelectorAll('li'))   //伪数组
+    </script>
+</body>de
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>123</li>
+    </ul>
+    <div>我是div</div>
+    <span>我是span</span>
+    <script>
+        //想要在页面中添加一个新的节点分为两步 1.创建节点 2.插入节点
+        //(1)创建节点
+        var li1=document.createElement('li')
+        //(2) 获取父级节点
+        var ul=document.querySelector('ul')
+        //(3) 插入节点  appendChild 
+        ul.appendChild(li1)     //在指定父级元素中子节点末尾插入
+        //（4） insertBefore('插入的元素'，在哪个子节点前插入)  两个参数
+        var li2=document.createElement('li')
+        ul.insertBefore(li2,ul.children[0])
+
+       // ====================================================
+       //删除节点  node.removeChile(child)    node指父级元素   （child）指删除哪个子节点
+
+
+       //兄弟节点
+
+       var div = document.querySelector('div');
+        // 1.nextSibling 下一个兄弟节点 包含元素节点或者 文本节点等等
+        //   previousSibling  前一个兄弟节点  同样包含元素节点、文本节点
+        console.log(div.nextSibling);
+        console.log(div.previousSibling);
+        // 2. nextElementSibling 得到下一个兄弟元素节点
+        console.log(div.nextElementSibling);
+        //   previousElementSibling   得到上一个兄弟元素节点
+        console.log(div.previousElementSibling);
+    </script>
+</body>
+</html>

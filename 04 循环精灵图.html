@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        ul{
+            width: 210px;
+            height: 280px;
+            background-color: #ccc;
+            margin: 50px auto;
+            
+            
+        }
+        li{
+            float: left;
+            margin: 15px;
+            width: 40px;
+            height: 40px;
+            
+            background: url(images/icons01.png) no-repeat;
+            
+            /* background-position: -139px -78px; */
+        }
+    </style>
+</head>
+<body>
+    <nav></nav>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        var lis=document.querySelectorAll('li');
+        for(var i=0;i<lis.length;i++){
+            var index=i*65+78;
+            lis[i].style.backgroundPosition='-140px -'+index+'px';
+        }
+    
+    </script>
+</body>
+</html>

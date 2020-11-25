@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        var div=document.querySelector('div')
+        console.log(div)
+        div.setAttribute('index',3)
+        console.log(div)
+        console.log(div.getAttribute('index'))
+        console.log(div.getAttribute('class'))
+        div.setAttribute('data-time','11:20')
+        console.log(div.dataset)
+        console.log(div.dataset.time)        //dataset  H5新增属性，可以找到data-开头的自定义属性
+        console.log(div.dataset['time'])
+        div.setAttribute('data-now-time','12:20')
+        console.log(div.dataset.nowTime)          //驼峰式
+        console.log(div.dataset['nowTime'])
+    </script>
+</body>
+</html>

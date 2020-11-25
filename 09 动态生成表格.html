@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 500px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        
+        td,
+        th {
+            border: 1px solid #333;
+        }
+        
+        thead tr {
+            height: 40px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        var tbody = document.querySelector('tbody')
+        //1.生成数据，以对象的形式存储在数组中
+        var arr=[{
+            name:'亚索',
+            subject:'JavaScript',
+            scoer:99
+        },{
+            name:'盲僧',
+            subject:'JavaScript',
+            scoer:90
+        },
+        {
+            name:'儿童劫',
+            subject:'JavaScript',
+            scoer:85
+        },
+        {
+            name:'小学生之手',
+            subject:'JavaScript',
+            scoer:59
+        },
+        {
+            name:'瑞文',
+            subject:'JavaScript',
+            scoer:88
+        }]
+        //2.创建行，有几个对象就创建几行，即arr.length
+        for(var i=0;i<arr.length;i++){
+            var tr=document.createElement('tr');
+            tbody.appendChild(tr);
+            //3. 在每一行中创建单元格，对象中有几个属性，就创建几个单元格
+           for(var k in arr[i]){   //遍历对象，即数组中的每一个元素
+            var td=document.createElement('td')
+            //4.创建好单元格后。还应该把每个对象中的属性值赋值给单元格  arr[i][k]
+            td.innerHTML=arr[i][k]
+            tr.appendChild(td)
+           }
+           //5.单独给每一行最后添加删除单元格  并赋予删除按钮
+           var td = document.createElement('td');
+            td.innerHTML ='<a href="javascript:;">删除</a>'; // //(href="javascript:;)用来取消超链接
+            tr.appendChild(td);    
+        }
+        
+        //6.注册删除事件
+        var as=document.querySelectorAll('a')
+        for(var j=0;j<as.length;j++){
+            as[j].onclick=function(){
+                tbody.removeChild(this.parentNode.parentNode)  //删除的是a标签所在单元格所在的行
+           
+            }
+        }
+    </script>
+</body>
+</html>

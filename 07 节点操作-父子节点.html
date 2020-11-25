@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="demo">
+        <div class="text">
+            <span class="title"></span>
+        </div>
+    </div>
+    <div class="box">
+        <ul>
+            <li>我是li1</li>
+            <li>我是li2</li>
+            <li>我是li3</li>
+            <li>我是li4</li>
+        </ul>
+        <ol>
+            <li>我是li5</li>
+            <li>我是li6</li>
+            <li>我是li7</li>
+            <li>我是li8</li>
+        </ol>
+    </div>
+    <script>
+        //1.父级节点 parentNode
+        var title=document.querySelector('.title')  //先获取span标签
+        console.log(title.parentNode)     //就近原则 获取最近一级的父节点 如果吗，没有则返回值为null
+        var demo=document.querySelector('.demo')
+        console.log(demo.parentNode)     //获取到 <body></body>
+
+        console.log(title.parentElement)    
+
+        //2.子级节点  
+        //（1）childNodes
+        var ul=document.querySelector('.box').querySelector('ul')
+        console.log(ul)
+        console.log(ul.childNodes)  //结果有9个子节点  ，chileNodes会返回所有的子级节点，包括文本节点，元素节点等
+                                    // nodeType  节点的类型  元素节点：1   属性节点：2    文本节点：3
+        console.log(ul.childNodes[0].nodeType)    //第0个子节点为文本节点  属性返回为 ：3
+        //（2）children
+        console.log(ul.children)    //只返回元素型子节点 不包括其他类型子节点
+        //（3）firstChild 和 lastChild
+        console.log(ul.firstChild)   //返回第一个子节点 但包括所有类型子节点 所以这里返回的是 #text(换行属于文本节点)
+        console.log(ul.lastChild)   //同理 lastChild也一样
+        //（4）firstElementChild 和 lastElementChild
+        console.log(ul.firstElementChild) //返回第一个元素型子节点  但有兼容问题
+        //（5）children[index]
+        console.log(ul.children[1])   // 利用children ，其返回值是一个伪数组  利用索引可以找到相应的元素类型子节点
+    </script>
+</body>
+</html>

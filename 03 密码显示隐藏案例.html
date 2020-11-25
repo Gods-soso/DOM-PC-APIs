@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        width: 400px;
+        margin: 100px auto;
+        border-bottom: 1px solid #ccc;
+        position: relative;
+      }
+      #inp {
+        width: 370px;
+        height: 30px;
+        border: 0;
+        outline: none;
+      }
+      #eye {
+        position: absolute;
+        top: 6px;
+        right: 18px;
+        width: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <img src="images/eye_03.jpg" alt="" id="eye" />
+      <input type="password" name="" id="inp" pass="" />
+    </div>
+    <script>
+      var inp = document.getElementById("inp");   
+      var eye = document.getElementById("eye");
+      var num = 0;           //定义一个变量用来判断 input的类型
+      eye.onclick = function () {
+        if (0 == num) {
+          inp.type = "text";
+          this.src = "images/eye_06.jpg";
+          num = 1;
+        } else {
+          inp.type = "password";
+          this.src = "images/eye_03.jpg";
+          num = 0;
+        }
+      };
+    </script>
+  </body>
+</html>
